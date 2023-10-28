@@ -267,12 +267,12 @@ namespace CCSWE.nanoFramework.Configuration
         /// <summary>
         /// The section of the configuration.
         /// </summary>
-        public string Name { get; }
+        public string Section { get; }
 
-        internal ConfigurationChangedEventArgs(string name, object configuration)
+        internal ConfigurationChangedEventArgs(string section, object configuration)
         {
             Configuration = configuration;
-            Name = name;
+            Section = section;
         }
     }
 
