@@ -33,17 +33,17 @@ namespace CCSWE.nanoFramework.Configuration
         /// <summary>
         /// Registers a configuration object.
         /// </summary>
-        public static IServiceCollection BindConfiguration(this IServiceCollection services, string name, object defaults, IValidateConfiguration? validator = null)
+        public static IServiceCollection BindConfiguration(this IServiceCollection services, string section, object defaults, IValidateConfiguration? validator = null)
         {
-            return services.BindConfiguration(name, defaults.GetType(), defaults, validator);
+            return services.BindConfiguration(section, defaults.GetType(), defaults, validator);
         }
 
         /// <summary>
         /// Registers a configuration object.
         /// </summary>
-        public static IServiceCollection BindConfiguration(this IServiceCollection services, string name, Type type, object defaults, IValidateConfiguration? validator = null)
+        public static IServiceCollection BindConfiguration(this IServiceCollection services, string section, Type type, object defaults, IValidateConfiguration? validator = null)
         {
-            return services.BindConfiguration(new ConfigurationDescriptor(name, type, defaults, validator));
+            return services.BindConfiguration(new ConfigurationDescriptor(section, type, defaults, validator));
         }
 
         internal static IServiceCollection BindConfiguration(this IServiceCollection services, ConfigurationDescriptor descriptor)

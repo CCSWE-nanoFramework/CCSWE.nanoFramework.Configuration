@@ -4,7 +4,7 @@ namespace CCSWE.nanoFramework.Configuration.Internal
 {
     internal class ConfigurationDescriptor
     {
-        public ConfigurationDescriptor(string name, Type type, object defaults, IValidateConfiguration? validator = null)
+        public ConfigurationDescriptor(string section, Type type, object defaults, IValidateConfiguration? validator = null)
         {
             if (defaults.GetType() != type)
             {
@@ -12,7 +12,7 @@ namespace CCSWE.nanoFramework.Configuration.Internal
             }
 
             Defaults = defaults;
-            Section = NormalizeSection(name);
+            Section = NormalizeSection(section);
             Type = type;
             Validator = validator;
         }
