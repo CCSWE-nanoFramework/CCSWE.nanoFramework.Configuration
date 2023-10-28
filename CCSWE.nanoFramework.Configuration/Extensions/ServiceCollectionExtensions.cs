@@ -33,9 +33,16 @@ namespace CCSWE.nanoFramework.Configuration
         /// <summary>
         /// Registers a configuration object.
         /// </summary>
+        public static IServiceCollection BindConfiguration(this IServiceCollection services, string name, object defaults, IValidateConfiguration? validator = null)
+        {
+            return services.BindConfiguration(name, defaults.GetType(), defaults, validator);
+        }
+
+        /// <summary>
+        /// Registers a configuration object.
+        /// </summary>
         public static IServiceCollection BindConfiguration(this IServiceCollection services, string name, Type type, object defaults, IValidateConfiguration? validator = null)
         {
-            // TODO: Move validator to a configure delegate?
             return services.BindConfiguration(new ConfigurationDescriptor(name, type, defaults, validator));
         }
 
