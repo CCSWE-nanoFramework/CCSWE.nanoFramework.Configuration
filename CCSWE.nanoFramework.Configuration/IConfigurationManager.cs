@@ -1,4 +1,6 @@
-﻿namespace CCSWE.nanoFramework.Configuration
+﻿using System;
+
+namespace CCSWE.nanoFramework.Configuration
 {
     /// <summary>
     /// An interface used to manage configuration objects from an <see cref="IConfigurationStorage"/> source.
@@ -22,6 +24,13 @@
         /// </summary>
         /// <returns>A list of configurations that have been registered.</returns>
         public string[] GetConfigurationNames();
+
+        /// <summary>
+        /// Retrieves the <see cref="Type"/> of the configuration object.
+        /// </summary>
+        /// <param name="name">The name of the configuration to retrieve.</param>
+        /// <returns>The <see cref="Type"/> of the configuration object.</returns>
+        public Type GetConfigurationType(string name);
 
         /// <summary>
         /// Saves the configuration object to the registered <see cref="IConfigurationStorage"/>.

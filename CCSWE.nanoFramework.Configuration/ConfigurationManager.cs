@@ -164,6 +164,17 @@ namespace CCSWE.nanoFramework.Configuration
             return configurationNames;
         }
 
+        public Type GetConfigurationType(string name)
+        {
+            CheckDisposed();
+
+            Ensure.IsNotNullOrEmpty(nameof(name), name);
+
+            var descriptor = GetDescriptor(name);
+
+            return descriptor.Type;
+        }
+
         public void SaveConfiguration(string name, object configuration)
         {
             CheckDisposed();
