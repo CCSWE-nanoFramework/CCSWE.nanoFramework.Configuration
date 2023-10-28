@@ -1,0 +1,63 @@
+﻿using System;
+using System.IO;
+using System.Text;
+using CCSWE.nanoFramework.Configuration.Internal;
+using nanoFramework.Json;
+
+namespace CCSWE.nanoFramework.Configuration
+{
+    // TODO: Add Trace logging?
+    internal class InternalConfigurationStorage: IConfigurationStorage
+    {
+        private const string Root = "I:";
+        
+        private static string GetPath(string name) => Path.Combine(Root, $"{ConfigurationDescriptor.NormalizeName(name)}.config");
+
+        /// <inheritdoc />
+        public void DeleteConfiguration(string name)
+        {
+            var path = GetPath(name);
+
+            if (!File.Exists(path))
+            {
+                return;
+            }
+
+            File.Delete(path);
+        }
+
+        /// <inheritdoc />
+        public object? ReadConfiguration(string name, Type type)
+        {
+            var path = GetPath(name);
+
+            if (!File.Exists(path))
+            {
+                return null;
+            }
+
+            // TODO: Abstract this into a separate FileStorage library
+            using var stream = new FileStream(path, FileMode.Open, FileAccess.Read);
+            //using var reader = new StreamReader(stream);
+            
+            return JsonConvert.DeserializeObject(stream, type);
+        }
+
+        /// <inheritdoc />
+        public void WriteConfiguration(string name, object configuration)
+        {
+            var path = GetPath(name);
+
+            // TODO: Look into adding a JsonConvert method for serialization directly to a stream
+            var serializedConfiguration = JsonConvert.SerializeObject(configuration);
+
+            // TODO: Abstract this into a separate FileStorage library
+            var buffer = Encoding.UTF8.GetBytes(serializedConfiguration);
+
+            // TODO: Write in chunks?
+            using var stream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            stream.Write(buffer, 0, buffer.Length);
+            stream.Close();
+        }
+    }
+}
