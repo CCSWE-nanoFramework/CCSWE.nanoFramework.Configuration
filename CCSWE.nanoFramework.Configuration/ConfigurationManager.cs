@@ -75,6 +75,27 @@ namespace CCSWE.nanoFramework.Configuration
             ConfigurationChanged?.Invoke(this, new ConfigurationChangedEventArgs(workItem.Descriptor.Section, workItem.Configuration));
         }
 
+        public void Clear()
+        {
+            var sections = GetSections();
+
+            foreach (var section in sections)
+            {
+                Clear(section);
+            }
+        }
+
+        public void Clear(string section)
+        {
+            CheckDisposed();
+
+            Ensure.IsNotNullOrEmpty(nameof(section), section);
+
+            var descriptor = GetDescriptor(section);
+
+            _storage.DeleteConfiguration(descriptor.Section);
+        }
+
         public bool Contains(string section)
         {
             return _configurationDescriptors[ConfigurationDescriptor.NormalizeSection(section)] is ConfigurationDescriptor;
@@ -132,7 +153,7 @@ namespace CCSWE.nanoFramework.Configuration
             return _configurationDescriptors[ConfigurationDescriptor.NormalizeSection(section)] as ConfigurationDescriptor ?? throw new ArgumentException($"Configuration '{section}' is not registered", nameof(section));
         }
 
-        public object GetConfiguration(string section)
+        public object Get(string section)
         {
             CheckDisposed();
 
@@ -180,7 +201,7 @@ namespace CCSWE.nanoFramework.Configuration
             return descriptor.Type;
         }
 
-        public void SaveConfiguration(string section, object configuration)
+        public void Save(string section, object configuration)
         {
             CheckDisposed();
 
@@ -193,7 +214,7 @@ namespace CCSWE.nanoFramework.Configuration
             SaveConfigurationInternal(descriptor, configuration);
         }
 
-        public void SaveConfigurationAsync(string section, object configuration)
+        public void SaveAsync(string section, object configuration)
         {
             CheckDisposed();
 
