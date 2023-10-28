@@ -11,7 +11,7 @@ namespace CCSWE.nanoFramework.Configuration
     {
         private const string Root = "I:";
         
-        private static string GetPath(string section) => Path.Combine(Root, $"{ConfigurationDescriptor.NormalizeSection(section)}.config");
+        private static string GetPath(string section) => Path.Combine(Root, $"ccswe-{ConfigurationDescriptor.NormalizeSection(section)}.config");
 
         /// <inheritdoc />
         public void DeleteConfiguration(string section)
