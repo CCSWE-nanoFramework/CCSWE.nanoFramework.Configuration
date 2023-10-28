@@ -75,6 +75,11 @@ namespace CCSWE.nanoFramework.Configuration
             ConfigurationChanged?.Invoke(this, new ConfigurationChangedEventArgs(workItem.Descriptor.Name, workItem.Configuration));
         }
 
+        public bool Contains(string name)
+        {
+            return _configurationDescriptors[ConfigurationDescriptor.NormalizeName(name)] is ConfigurationDescriptor;
+        }
+
         private void DebugLog(string message)
         {
             if (string.IsNullOrEmpty(message) || !_logger.IsEnabled(_logLevel))
@@ -149,7 +154,7 @@ namespace CCSWE.nanoFramework.Configuration
             }
         }
 
-        public string[] GetConfigurationNames()
+        public string[] GetNames()
         {
             CheckDisposed();
 
@@ -164,7 +169,7 @@ namespace CCSWE.nanoFramework.Configuration
             return configurationNames;
         }
 
-        public Type GetConfigurationType(string name)
+        public Type GetType(string name)
         {
             CheckDisposed();
 
