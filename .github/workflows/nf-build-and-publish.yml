@@ -1,6 +1,6 @@
 name: Build and publish
 
-on: [pull_request]
+on: [push, pull_request]
 
 defaults:
   run:
