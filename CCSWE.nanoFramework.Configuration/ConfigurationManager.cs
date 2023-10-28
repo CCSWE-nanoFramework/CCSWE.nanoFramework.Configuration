@@ -92,7 +92,11 @@ namespace CCSWE.nanoFramework.Configuration
             Ensure.IsNotNullOrEmpty(nameof(section), section);
 
             var descriptor = GetDescriptor(section);
+            descriptor.Current = descriptor.Defaults;
+            
+            _configurationChangedThreadPool.Enqueue(new ConfigurationWorkItem(descriptor, descriptor.Current));
 
+            // TODO: Do this async?
             _storage.DeleteConfiguration(descriptor.Section);
         }
 
