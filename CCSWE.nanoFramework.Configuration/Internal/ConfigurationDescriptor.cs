@@ -12,7 +12,7 @@ namespace CCSWE.nanoFramework.Configuration.Internal
             }
 
             Defaults = defaults;
-            Name = NormalizeName(name);
+            Section = NormalizeSection(name);
             Type = type;
             Validator = validator;
         }
@@ -21,7 +21,7 @@ namespace CCSWE.nanoFramework.Configuration.Internal
 
         public object Defaults { get; }
 
-        public string Name { get; }
+        public string Section { get; }
 
         /// <summary>
         /// Gets an object that can be used to synchronize access to the <see cref="ConfigurationDescriptor"/>.
@@ -35,6 +35,6 @@ namespace CCSWE.nanoFramework.Configuration.Internal
 
         public IValidateConfiguration? Validator { get; }
 
-        internal static string NormalizeName(string name) => name.ToLower();
+        internal static string NormalizeSection(string name) => name.ToLower();
     }
 }

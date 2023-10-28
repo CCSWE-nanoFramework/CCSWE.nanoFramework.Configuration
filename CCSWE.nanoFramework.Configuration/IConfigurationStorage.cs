@@ -8,26 +8,26 @@ namespace CCSWE.nanoFramework.Configuration
     public interface IConfigurationStorage
     {
         /// <summary>
-        /// Removes configuration from storage.
+        /// Delete configuration from storage.
         /// </summary>
-        /// <param name="name">The name of the configuration.</param>
-        void DeleteConfiguration(string name);
+        /// <param name="section">The configuration section to delete.</param>
+        void DeleteConfiguration(string section);
 
         /// <summary>
         /// Read configuration from storage.
         /// </summary>
         /// <remarks>The configuration object is not validated at this point.</remarks>
-        /// <param name="name">The name of the configuration.</param>
+        /// <param name="section">The configuration section to read.</param>
         /// <param name="type">The type of the configuration.</param>
         /// <returns>The configuration object.</returns>
-        object? ReadConfiguration(string name, Type type);
+        object? ReadConfiguration(string section, Type type);
 
         /// <summary>
         /// Write configuration to storage.
         /// </summary>
         /// <remarks>The <paramref name="configuration"/> should be validated prior to writing.</remarks>
-        /// <param name="name">The name of the configuration.</param>
+        /// <param name="section">The configuration section to write.</param>
         /// <param name="configuration">The configuration object.</param>
-        void WriteConfiguration(string name, object configuration);
+        void WriteConfiguration(string section, object configuration);
     }
 }

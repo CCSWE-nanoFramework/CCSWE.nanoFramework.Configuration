@@ -11,12 +11,12 @@ namespace CCSWE.nanoFramework.Configuration
     {
         private const string Root = "I:";
         
-        private static string GetPath(string name) => Path.Combine(Root, $"{ConfigurationDescriptor.NormalizeName(name)}.config");
+        private static string GetPath(string section) => Path.Combine(Root, $"{ConfigurationDescriptor.NormalizeSection(section)}.config");
 
         /// <inheritdoc />
-        public void DeleteConfiguration(string name)
+        public void DeleteConfiguration(string section)
         {
-            var path = GetPath(name);
+            var path = GetPath(section);
 
             if (!File.Exists(path))
             {
@@ -27,9 +27,9 @@ namespace CCSWE.nanoFramework.Configuration
         }
 
         /// <inheritdoc />
-        public object? ReadConfiguration(string name, Type type)
+        public object? ReadConfiguration(string section, Type type)
         {
-            var path = GetPath(name);
+            var path = GetPath(section);
 
             if (!File.Exists(path))
             {
@@ -44,9 +44,9 @@ namespace CCSWE.nanoFramework.Configuration
         }
 
         /// <inheritdoc />
-        public void WriteConfiguration(string name, object configuration)
+        public void WriteConfiguration(string section, object configuration)
         {
-            var path = GetPath(name);
+            var path = GetPath(section);
 
             // TODO: Look into adding a JsonConvert method for serialization directly to a stream
             var serializedConfiguration = JsonConvert.SerializeObject(configuration);

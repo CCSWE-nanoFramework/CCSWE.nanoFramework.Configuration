@@ -49,12 +49,12 @@ namespace CCSWE.nanoFramework.Configuration
 
         private void AddDescriptor(ConfigurationDescriptor descriptor)
         {
-            if (_configurationDescriptors.Contains(descriptor.Name))
+            if (_configurationDescriptors.Contains(descriptor.Section))
             {
-                throw new ArgumentException($"Configuration '{descriptor.Name}' has already been registered", nameof(descriptor));
+                throw new ArgumentException($"Configuration '{descriptor.Section}' has already been registered", nameof(descriptor));
             }
 
-            _configurationDescriptors.Add(descriptor.Name, descriptor);
+            _configurationDescriptors.Add(descriptor.Section, descriptor);
         }
 
         private void CheckDisposed()
@@ -72,12 +72,12 @@ namespace CCSWE.nanoFramework.Configuration
                 return;
             }
 
-            ConfigurationChanged?.Invoke(this, new ConfigurationChangedEventArgs(workItem.Descriptor.Name, workItem.Configuration));
+            ConfigurationChanged?.Invoke(this, new ConfigurationChangedEventArgs(workItem.Descriptor.Section, workItem.Configuration));
         }
 
-        public bool Contains(string name)
+        public bool Contains(string section)
         {
-            return _configurationDescriptors[ConfigurationDescriptor.NormalizeName(name)] is ConfigurationDescriptor;
+            return _configurationDescriptors[ConfigurationDescriptor.NormalizeSection(section)] is ConfigurationDescriptor;
         }
 
         private void DebugLog(string message)
@@ -127,18 +127,18 @@ namespace CCSWE.nanoFramework.Configuration
         }
 
 
-        private ConfigurationDescriptor GetDescriptor(string name)
+        private ConfigurationDescriptor GetDescriptor(string section)
         {
-            return _configurationDescriptors[ConfigurationDescriptor.NormalizeName(name)] as ConfigurationDescriptor ?? throw new ArgumentException($"Configuration '{name}' is not registered", nameof(name));
+            return _configurationDescriptors[ConfigurationDescriptor.NormalizeSection(section)] as ConfigurationDescriptor ?? throw new ArgumentException($"Configuration '{section}' is not registered", nameof(section));
         }
 
-        public object GetConfiguration(string name)
+        public object GetConfiguration(string section)
         {
             CheckDisposed();
 
-            Ensure.IsNotNullOrEmpty(nameof(name), name);
+            Ensure.IsNotNullOrEmpty(nameof(section), section);
 
-            var descriptor = GetDescriptor(name);
+            var descriptor = GetDescriptor(section);
             var configuration = descriptor.Current;
 
             if (configuration is not null)
@@ -148,13 +148,13 @@ namespace CCSWE.nanoFramework.Configuration
 
             lock (descriptor.SyncRoot)
             {
-                descriptor.Current = _storage.ReadConfiguration(descriptor.Name, descriptor.Type);
+                descriptor.Current = _storage.ReadConfiguration(descriptor.Section, descriptor.Type);
 
                 return descriptor.Current ?? descriptor.Defaults;
             }
         }
 
-        public string[] GetNames()
+        public string[] GetSections()
         {
             CheckDisposed();
 
@@ -163,62 +163,62 @@ namespace CCSWE.nanoFramework.Configuration
             for (var i = 0; i < _configurationDescriptors.Count; i++)
             {
                 var configurationDescriptor = (ConfigurationDescriptor) _configurationDescriptors[i];
-                configurationNames[i] = configurationDescriptor.Name;
+                configurationNames[i] = configurationDescriptor.Section;
             }
 
             return configurationNames;
         }
 
-        public Type GetType(string name)
+        public Type GetType(string section)
         {
             CheckDisposed();
 
-            Ensure.IsNotNullOrEmpty(nameof(name), name);
+            Ensure.IsNotNullOrEmpty(nameof(section), section);
 
-            var descriptor = GetDescriptor(name);
+            var descriptor = GetDescriptor(section);
 
             return descriptor.Type;
         }
 
-        public void SaveConfiguration(string name, object configuration)
+        public void SaveConfiguration(string section, object configuration)
         {
             CheckDisposed();
 
-            Ensure.IsNotNullOrEmpty(nameof(name), name);
+            Ensure.IsNotNullOrEmpty(nameof(section), section);
             Ensure.IsNotNull(nameof(configuration), configuration);
 
-            var descriptor = GetDescriptor(name);
+            var descriptor = GetDescriptor(section);
 
             ValidateConfiguration(descriptor, configuration);
             SaveConfigurationInternal(descriptor, configuration);
         }
 
-        public void SaveConfigurationAsync(string name, object configuration)
+        public void SaveConfigurationAsync(string section, object configuration)
         {
             CheckDisposed();
 
-            Ensure.IsNotNullOrEmpty(nameof(name), name);
+            Ensure.IsNotNullOrEmpty(nameof(section), section);
             Ensure.IsNotNull(nameof(configuration), configuration);
 
-            var descriptor = GetDescriptor(name);
+            var descriptor = GetDescriptor(section);
 
             ValidateConfiguration(descriptor, configuration);
 
-            DebugLog($"Queueing configuration save for {name}");
+            DebugLog($"Queueing configuration save for {section}");
 
             _saveConfigurationThreadPool.Enqueue(new ConfigurationWorkItem(descriptor, configuration));
         }
 
         private void SaveConfigurationInternal(ConfigurationDescriptor descriptor, object configuration)
         {
-            DebugLog($"Saving configuration {descriptor.Name}");
+            DebugLog($"Saving configuration {descriptor.Section}");
 
             lock (descriptor.SyncRoot)
             {
                 descriptor.Current = configuration;
 
                 _configurationChangedThreadPool.Enqueue(new ConfigurationWorkItem(descriptor, configuration));
-                _storage.WriteConfiguration(descriptor.Name, configuration);
+                _storage.WriteConfiguration(descriptor.Section, configuration);
             }
         }
 
@@ -265,7 +265,7 @@ namespace CCSWE.nanoFramework.Configuration
         public object Configuration { get; }
 
         /// <summary>
-        /// The name of the configuration.
+        /// The section of the configuration.
         /// </summary>
         public string Name { get; }
 
