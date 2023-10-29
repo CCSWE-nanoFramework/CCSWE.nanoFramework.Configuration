@@ -55,7 +55,12 @@ namespace CCSWE.nanoFramework.Configuration
             var buffer = Encoding.UTF8.GetBytes(serializedConfiguration);
 
             // TODO: Write in chunks?
-            using var stream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+            }
+
+            using var stream = new FileStream(path, FileMode.Create, FileAccess.ReadWrite);
             stream.Write(buffer, 0, buffer.Length);
             stream.Close();
         }
