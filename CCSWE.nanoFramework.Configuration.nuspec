@@ -7,10 +7,11 @@
     <!--<version>$version$</version>-->
     <authors>Cory Charlton</authors>
     <owners>Cory Charlton,CCSWE</owners>
-    <!--<license type="file">LICENSE</license>-->
+    <license type="file">LICENSE.md</license>
     <projectUrl>https://github.com/CoryCharlton/CCSWE.nanoFramework.Configuration</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <developmentDependency>false</developmentDependency>
+    <readme>README.md</readme>
+	<developmentDependency>false</developmentDependency>
     <description>Manage configuration data for your application.</description>
     <repository type="git" url="https://github.com/CoryCharlton/CCSWE.nanoFramework.Configuration" commit="$commit$" />
     <copyright>Copyright (c) Cory Charlton</copyright>
@@ -34,6 +35,7 @@
   </metadata>
   <files>
     <file src="CCSWE.nanoFramework.Configuration\bin\Release\CCSWE.nanoFramework.Configuration.*" target="lib" />
-    <!--<file src="LICENSE" target=""/>-->
+    <file src="LICENSE.md" target=""/>
+    <file src="README.md" target=""/>
   </files>
 </package>
