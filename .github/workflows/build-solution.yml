@@ -12,10 +12,10 @@ jobs:
     timeout-minutes: 15
     runs-on: windows-latest
     env:
-      SOLUTION: 'CCSWE.nanoFramework.Configuration.sln'
       BUILD_CONFIGURATION: 'Release'
       GITHUB_TOKEN: ${{ github.token }}
       NUGET_PACKAGE_NAME: 'CCSWE.nanoFramework.Configuration'
+      SOLUTION: 'CCSWE.nanoFramework.Configuration.sln'
 
     steps:
       - name: Checkout
