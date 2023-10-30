@@ -10,8 +10,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GitHub", "GitHub", "{D866E27C-35BA-490E-A5B3-FDCBB822B942}"
 	ProjectSection(SolutionItems) = preProject
 		.github\config.yml = .github\config.yml
-		.github\workflows\nf-build-and-publish.yml = .github\workflows\nf-build-and-publish.yml
-		.github\workflows\nf-update-dependencies.yml = .github\workflows\nf-update-dependencies.yml
+		.github\workflows\build-solution.yml = .github\workflows\build-solution.yml
+		.github\workflows\update-dependencies.yml = .github\workflows\update-dependencies.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{288D4630-ED36-4175-81E8-4C3D689E15C0}"
