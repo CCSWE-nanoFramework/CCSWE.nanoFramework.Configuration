@@ -11,15 +11,15 @@
     <projectUrl>https://github.com/CoryCharlton/CCSWE.nanoFramework.Configuration</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <readme>README.md</readme>
-	<developmentDependency>false</developmentDependency>
+    <developmentDependency>false</developmentDependency>
     <description>Manage configuration data for your application.</description>
     <repository type="git" url="https://github.com/CoryCharlton/CCSWE.nanoFramework.Configuration" commit="$commit$" />
     <copyright>Copyright (c) Cory Charlton</copyright>
     <tags>nanoFramework C# csharp netmf netnf ccswe configuration</tags>
     <dependencies>
-      <dependency id="CCSWE.nanoFramework.Collections.Concurrent" version="0.3.1" />
-      <dependency id="CCSWE.nanoFramework.Core" version="0.1.6" />
-      <dependency id="CCSWE.nanoFramework.Threading" version="0.1.2" />
+      <dependency id="CCSWE.nanoFramework.Collections.Concurrent" version="0.4.0" />
+      <dependency id="CCSWE.nanoFramework.Core" version="0.2.4" />
+      <dependency id="CCSWE.nanoFramework.Threading" version="0.2.1" />
       <dependency id="nanoFramework.CoreLibrary" version="1.14.2" />
       <dependency id="nanoFramework.DependencyInjection" version="1.0.35" />
       <dependency id="nanoFramework.Hosting" version="1.0.25" />
@@ -35,7 +35,7 @@
   </metadata>
   <files>
     <file src="CCSWE.nanoFramework.Configuration\bin\Release\CCSWE.nanoFramework.Configuration.*" target="lib" />
-    <file src="LICENSE.md" target=""/>
-    <file src="README.md" target=""/>
+    <file src="LICENSE.md" target="" />
+    <file src="README.md" target="" />
   </files>
 </package>
