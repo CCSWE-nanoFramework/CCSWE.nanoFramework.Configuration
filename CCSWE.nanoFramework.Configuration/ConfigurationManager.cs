@@ -2,8 +2,8 @@
 using System.Collections;
 using CCSWE.nanoFramework.Configuration.Internal;
 using CCSWE.nanoFramework.Threading;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using nanoFramework.DependencyInjection;
 
 namespace CCSWE.nanoFramework.Configuration
 {

@@ -1,5 +1,4 @@
 using nanoFramework.TestFramework;
-using System;
 
 namespace CCSWE.nanoFramework.Configuration.UnitTests
 {

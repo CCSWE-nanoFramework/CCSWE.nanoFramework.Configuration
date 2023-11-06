@@ -1,6 +1,6 @@
 ﻿using System;
 using CCSWE.nanoFramework.Configuration.Internal;
-using nanoFramework.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 
 // ReSharper disable once CheckNamespace
 namespace CCSWE.nanoFramework.Configuration
