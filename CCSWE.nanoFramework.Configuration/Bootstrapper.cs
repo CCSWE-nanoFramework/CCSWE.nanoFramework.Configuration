@@ -8,7 +8,7 @@ namespace CCSWE.nanoFramework.Configuration
     /// <summary>
     /// Extension methods for <see cref="ConfigurationManager"/>.
     /// </summary>
-    public static class ServiceCollectionExtensions
+    public static class Bootstrapper
     {
         /// <summary>
         /// Adds a <see cref="ConfigurationManager"/>.
