@@ -2,7 +2,6 @@
 using System.IO;
 using System.Text;
 using CCSWE.nanoFramework.Configuration.Internal;
-using CCSWE.nanoFramework.FileStorage;
 using nanoFramework.Json;
 
 namespace CCSWE.nanoFramework.Configuration
@@ -37,7 +36,7 @@ namespace CCSWE.nanoFramework.Configuration
                 return null;
             }
 
-            using var stream = FileInternal.OpenRead(path);
+            using var stream = File.OpenRead(path);
             
             return JsonConvert.DeserializeObject(stream, type);
         }
@@ -50,7 +49,7 @@ namespace CCSWE.nanoFramework.Configuration
             // TODO: Look into adding a JsonConvert method for serialization directly to a stream
             var serializedConfiguration = JsonConvert.SerializeObject(configuration);
 
-            FileInternal.WriteAllText(path, serializedConfiguration);
+            File.WriteAllText(path, serializedConfiguration);
         }
     }
 }
