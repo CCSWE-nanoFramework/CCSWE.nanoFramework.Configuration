@@ -183,15 +183,22 @@ namespace CCSWE.nanoFramework.Configuration
         {
             CheckDisposed();
 
-            var configurationNames = new string[_configurationDescriptors.Count];
+            var configurationDescriptors = _configurationDescriptors.Values;
+            var configurationSections = new string[configurationDescriptors.Count];
+            var configurationSectionIndex = 0;
             
-            for (var i = 0; i < _configurationDescriptors.Count; i++)
+            foreach (var descriptor in configurationDescriptors)
             {
-                var configurationDescriptor = (ConfigurationDescriptor) _configurationDescriptors[i];
-                configurationNames[i] = configurationDescriptor.Section;
+                if (descriptor is not ConfigurationDescriptor configurationDescriptor)
+                {
+                    throw new NullReferenceException();
+                }
+
+                configurationSections[configurationSectionIndex] = configurationDescriptor.Section;
+                configurationSectionIndex++;
             }
 
-            return configurationNames;
+            return configurationSections;
         }
 
         public Type GetType(string section)
