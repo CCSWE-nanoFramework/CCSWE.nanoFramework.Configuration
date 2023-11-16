@@ -19,7 +19,7 @@ namespace CCSWE.nanoFramework.Configuration
 
             configureOptions?.Invoke(options);
 
-            services.AddSingleton(typeof(ConfigurationManagerOptions), options);
+            //services.AddSingleton(typeof(ConfigurationManagerOptions), options);
             services.AddSingleton(typeof(IConfigurationManager), typeof(ConfigurationManager));
 
             if (options.UseInternalStorage)

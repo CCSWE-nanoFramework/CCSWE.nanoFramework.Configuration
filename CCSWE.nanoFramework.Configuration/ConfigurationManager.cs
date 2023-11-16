@@ -141,10 +141,12 @@ namespace CCSWE.nanoFramework.Configuration
                 return;
             }
 
+            _configurationChangedThreadPool.Dispose();
+            _saveConfigurationThreadPool.Dispose();
+
             if (disposing)
             {
-                _configurationChangedThreadPool.Dispose();
-                _saveConfigurationThreadPool.Dispose();
+
             }
 
             _disposed = true;

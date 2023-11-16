@@ -8,6 +8,12 @@ namespace CCSWE.nanoFramework.Configuration.UnitTests
     [TestClass]
     public class InternalConfigurationStorageTests
     {
+        [Setup]
+        public void Setup()
+        {
+            Assert.SkipTest("These tests can only be run on real hardware.");
+        }
+
         [TestMethod]
         public void DeleteConfiguration_deletes_configuration_file()
         {
