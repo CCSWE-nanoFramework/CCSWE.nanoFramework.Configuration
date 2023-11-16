@@ -14,13 +14,11 @@ namespace CCSWE.nanoFramework.Configuration
         private readonly Hashtable _configurationDescriptors = new ();
         private readonly object _lock = new();
         private readonly ILogger _logger;
-        private readonly LogLevel _logLevel;
         private readonly ConsumerThreadPool _saveConfigurationThreadPool;
         private readonly IConfigurationStorage _storage;
 
-        public ConfigurationManager(ILogger logger, ConfigurationManagerOptions options, IServiceProvider serviceProvider, IConfigurationStorage storage)
+        public ConfigurationManager(ILogger logger, IServiceProvider serviceProvider, IConfigurationStorage storage)
         {
-            _logLevel = options.LogLevel;
             _logger = logger;
             _storage = storage;
 
@@ -97,6 +95,7 @@ namespace CCSWE.nanoFramework.Configuration
             _configurationChangedThreadPool.Enqueue(new ConfigurationWorkItem(descriptor, descriptor.Current));
 
             // TODO: Do this async?
+            // ReSharper disable once InconsistentlySynchronizedField
             _storage.DeleteConfiguration(descriptor.Section);
         }
 
@@ -105,14 +104,14 @@ namespace CCSWE.nanoFramework.Configuration
             return _configurationDescriptors[ConfigurationDescriptor.NormalizeSection(section)] is ConfigurationDescriptor;
         }
 
-        private void DebugLog(string message)
+        private void Log(LogLevel logLevel, string message)
         {
-            if (string.IsNullOrEmpty(message) || !_logger.IsEnabled(_logLevel))
+            if (string.IsNullOrEmpty(message) || !_logger.IsEnabled(logLevel))
             {
                 return;
             }
 
-            _logger.Log(_logLevel, $"[{nameof(ConfigurationManager)}] {message}");
+            _logger.Log(logLevel, $"[{nameof(ConfigurationManager)}] {message}");
         }
 
         /// <inheritdoc />
@@ -236,14 +235,14 @@ namespace CCSWE.nanoFramework.Configuration
 
             ValidateConfiguration(descriptor, configuration);
 
-            DebugLog($"Queueing configuration save for {section}");
+            Log(LogLevel.Trace, $"Queueing configuration save for {section}");
 
             _saveConfigurationThreadPool.Enqueue(new ConfigurationWorkItem(descriptor, configuration));
         }
 
         private void SaveConfigurationInternal(ConfigurationDescriptor descriptor, object configuration)
         {
-            DebugLog($"Saving configuration {descriptor.Section}");
+            Log(LogLevel.Trace, $"Saving configuration {descriptor.Section}");
 
             lock (descriptor.SyncRoot)
             {

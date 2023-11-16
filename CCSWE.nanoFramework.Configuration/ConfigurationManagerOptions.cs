@@ -8,11 +8,6 @@ namespace CCSWE.nanoFramework.Configuration
     public class ConfigurationManagerOptions
     {
         /// <summary>
-        /// The default <see cref="LogLevel"/> used for debug log messages.
-        /// </summary>
-        public LogLevel LogLevel { get; set; } = LogLevel.Trace;
-
-        /// <summary>
         /// If set to <value>true</value> an <see cref="IConfigurationStorage"/> that uses internal storage will be registered.
         /// </summary>
         public bool UseInternalStorage { get; set; } = true;
