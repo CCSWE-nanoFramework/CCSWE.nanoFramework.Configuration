@@ -1,5 +1,6 @@
 ﻿using CCSWE.nanoFramework.Configuration.Internal;
 using CCSWE.nanoFramework.Configuration.UnitTests.Mocks;
+using CCSWE.nanoFramework.Threading.TestFramework;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using nanoFramework.TestFramework;
@@ -12,26 +13,27 @@ namespace CCSWE.nanoFramework.Configuration.UnitTests
         [TestMethod]
         public void AddConfigurationManager_should_register_ConfigurationManager()
         {
-            Assert.SkipTest("Can't test this yet because the test framework times out if a thread is still running but suspended");
+            ThreadPoolTestHelper.ExecuteAndReset(() =>
+            {
+                // Arrange
+                var serviceCollection = new ServiceCollection();
+                serviceCollection.AddSingleton(typeof(ILogger), typeof(LoggerMock));
 
-            // Arrange
-            var serviceCollection = new ServiceCollection();
-            serviceCollection.AddSingleton(typeof(ILogger), typeof(LoggerMock));
+                // Act
+                serviceCollection.AddConfigurationManager();
 
-            // Act
-            serviceCollection.AddConfigurationManager();
+                var serviceProvider = serviceCollection.BuildServiceProvider();
+                var result1 = serviceProvider.GetService(typeof(IConfigurationManager));
+                var result2 = serviceProvider.GetService(typeof(IConfigurationManager));
 
-            var serviceProvider = serviceCollection.BuildServiceProvider();
-            var result1 = serviceProvider.GetService(typeof(IConfigurationManager));
-            var result2 = serviceProvider.GetService(typeof(IConfigurationManager));
+                // Assert
+                Assert.IsNotNull(result1);
+                Assert.IsInstanceOfType(result1, typeof(ConfigurationManager));
+                Assert.AreEqual(result1, result2);
 
-            // Assert
-            Assert.IsNotNull(result1);
-            Assert.IsInstanceOfType(result1, typeof(ConfigurationManager));
-            Assert.AreEqual(result1, result2);
-
-            var configurationManager = (ConfigurationManager)result1;
-            configurationManager.Dispose();
+                var configurationManager = (ConfigurationManager)result1;
+                configurationManager.Dispose();
+            });
         }
 
         [TestMethod]
