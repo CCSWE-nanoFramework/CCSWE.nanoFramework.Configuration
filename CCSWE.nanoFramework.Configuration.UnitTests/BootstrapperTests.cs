@@ -1,4 +1,5 @@
-﻿using CCSWE.nanoFramework.Configuration.UnitTests.Mocks;
+﻿using CCSWE.nanoFramework.Configuration.Internal;
+using CCSWE.nanoFramework.Configuration.UnitTests.Mocks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using nanoFramework.TestFramework;
@@ -53,6 +54,27 @@ namespace CCSWE.nanoFramework.Configuration.UnitTests
             Assert.AreEqual(result1, result2);
         }
 
-        // TODO: Add BindConfiguration Tests
+        [TestMethod]
+        public void BindConfiguration_adds_ConfigurationDescriptor()
+        {
+            // Arrange
+            var serviceCollection = new ServiceCollection();
+
+            // Act
+            serviceCollection.BindConfiguration(ConfigurationMock.Section, ConfigurationMock.Default);
+
+            var serviceProvider = serviceCollection.BuildServiceProvider();
+            var result1 = serviceProvider.GetServices(typeof(ConfigurationDescriptor));
+            var result2 = serviceProvider.GetServices(typeof(ConfigurationDescriptor));
+
+            // Assert
+            Assert.IsTrue(result1.Length > 0);
+            Assert.AreEqual(result1.Length, result2.Length);
+
+            var configurationDescriptor = (ConfigurationDescriptor)result1[0];
+
+            Assert.AreEqual(ConfigurationMock.Default, configurationDescriptor.Defaults);
+            Assert.AreEqual(ConfigurationMock.Section.ToLower(), configurationDescriptor.Section.ToLower());
+        }
     }
 }

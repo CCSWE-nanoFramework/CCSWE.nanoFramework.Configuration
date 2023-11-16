@@ -41,12 +41,13 @@ namespace CCSWE.nanoFramework.Configuration
         /// <summary>
         /// Registers a configuration object.
         /// </summary>
+        // TODO: Since I require defaults is there any need for this overload to be public?
         public static IServiceCollection BindConfiguration(this IServiceCollection services, string section, Type type, object defaults, IValidateConfiguration? validator = null)
         {
             return services.BindConfiguration(new ConfigurationDescriptor(section, type, defaults, validator));
         }
 
-        internal static IServiceCollection BindConfiguration(this IServiceCollection services, ConfigurationDescriptor descriptor)
+        private static IServiceCollection BindConfiguration(this IServiceCollection services, ConfigurationDescriptor descriptor)
         {
             services.AddSingleton(typeof(ConfigurationDescriptor), descriptor);
 

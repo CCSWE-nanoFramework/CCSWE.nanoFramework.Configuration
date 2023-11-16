@@ -4,6 +4,8 @@ namespace CCSWE.nanoFramework.Configuration.UnitTests.Mocks
 {
     internal class ConfigurationMock
     {
+        public static readonly ConfigurationMock Default = new(false, DateTime.MinValue, 4.321d, 1.234f, 4321, "Not A String", TimeSpan.MinValue);
+
         public const string Section = nameof(ConfigurationMock);
 
         public ConfigurationMock()
