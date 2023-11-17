@@ -29,8 +29,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="BootstrapperTests.cs" />
+    <Compile Include="ConfigurationManagerTests.cs" />
     <Compile Include="InternalConfigurationStorageTests.cs" />
     <Compile Include="Mocks\ConfigurationMock.cs" />
+    <Compile Include="Mocks\ConfigurationMockValidator.cs" />
+    <Compile Include="Mocks\ConfigurationStorageMock.cs" />
     <Compile Include="Mocks\LoggerMock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

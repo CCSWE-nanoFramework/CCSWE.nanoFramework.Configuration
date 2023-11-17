@@ -7,6 +7,7 @@ namespace CCSWE.nanoFramework.Configuration.UnitTests.Mocks
         public static readonly ConfigurationMock Default = new(false, DateTime.MinValue, 4.321d, 1.234f, 4321, "Not A String", TimeSpan.MinValue);
 
         public const string Section = nameof(ConfigurationMock);
+        public const string Section2 = nameof(ConfigurationMock) + "2";
 
         public ConfigurationMock()
         {
@@ -44,7 +45,9 @@ namespace CCSWE.nanoFramework.Configuration.UnitTests.Mocks
             return new ConfigurationMock(true, DateTime.UtcNow, 0.1234d, 0.4321f, 1234, "A String", TimeSpan.FromMinutes(1234));
         }
 
+#pragma warning disable CS0659 // Type overrides Object.Equals(object o) but does not override Object.GetHashCode()
         public override bool Equals(object obj)
+#pragma warning restore CS0659 // Type overrides Object.Equals(object o) but does not override Object.GetHashCode()
         {
             return Equals(obj as ConfigurationMock);
         }
@@ -63,6 +66,11 @@ namespace CCSWE.nanoFramework.Configuration.UnitTests.Mocks
                    IntSetting == other.IntSetting &&
                    StringSetting == other.StringSetting &&
                    TimeSpanSetting == other.TimeSpanSetting;
+        }
+
+        public override string ToString()
+        {
+            return $"{BoolSetting}|{DateTimeSetting}|{DoubleSetting}|{FloatSetting}|{IntSetting}|{StringSetting}|{TimeSpanSetting}";
         }
     }
 }
