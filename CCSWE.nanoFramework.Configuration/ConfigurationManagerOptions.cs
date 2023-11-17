@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
-
-namespace CCSWE.nanoFramework.Configuration
+﻿namespace CCSWE.nanoFramework.Configuration
 {
     /// <summary>
     /// Options used to configure <see cref="ConfigurationManager"/>.
@@ -8,7 +6,7 @@ namespace CCSWE.nanoFramework.Configuration
     public class ConfigurationManagerOptions
     {
         /// <summary>
-        /// If set to <value>true</value> an <see cref="IConfigurationStorage"/> that uses internal storage will be registered.
+        /// If set to <value>true</value> an <see cref="IConfigurationStorage"/> that uses internal storage (I:\) will be registered.
         /// </summary>
         public bool UseInternalStorage { get; set; } = true;
     }

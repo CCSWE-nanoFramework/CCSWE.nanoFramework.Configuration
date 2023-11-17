@@ -1,17 +1,21 @@
 ﻿using System;
 using System.IO;
-using System.Text;
 using CCSWE.nanoFramework.Configuration.Internal;
 using nanoFramework.Json;
 
 namespace CCSWE.nanoFramework.Configuration
 {
-    // TODO: Add Trace logging?
     internal class InternalConfigurationStorage: IConfigurationStorage
     {
         private const string Root = "I:";
         
-        private static string GetPath(string section) => Path.Combine(Root, $"ccswe-{ConfigurationDescriptor.NormalizeSection(section)}.config");
+        /// <summary>
+        /// Gets the path to a configuration section.
+        /// </summary>
+        /// <param name="section">The configuration section.</param>
+        /// <returns>An absolute path to the configuration section.</returns>
+        /// <remarks>This is only visible for testing.</remarks>
+        internal static string GetPath(string section) => Path.Combine(Root, $"ccswe-{ConfigurationDescriptor.NormalizeSection(section)}.config");
 
         /// <inheritdoc />
         public void DeleteConfiguration(string section)
