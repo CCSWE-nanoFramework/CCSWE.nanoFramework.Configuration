@@ -35,6 +35,9 @@
     <Compile Include="ValidateConfigurationResult.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="CCSWE.nanoFramework.Collections.Concurrent">
+      <HintPath>..\packages\CCSWE.nanoFramework.Collections.Concurrent.1.0.4\lib\CCSWE.nanoFramework.Collections.Concurrent.dll</HintPath>
+    </Reference>
     <Reference Include="CCSWE.nanoFramework.Collections.Concurrent, Version=1.0.3.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\packages\CCSWE.nanoFramework.Collections.Concurrent.1.0.3\lib\CCSWE.nanoFramework.Collections.Concurrent.dll</HintPath>
       <Private>True</Private>
@@ -43,9 +46,8 @@
       <HintPath>..\packages\CCSWE.nanoFramework.Core.1.0.3\lib\CCSWE.nanoFramework.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CCSWE.nanoFramework.Threading, Version=1.0.4.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\CCSWE.nanoFramework.Threading.1.0.4\lib\CCSWE.nanoFramework.Threading.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="CCSWE.nanoFramework.Threading">
+      <HintPath>..\packages\CCSWE.nanoFramework.Threading.1.0.7\lib\CCSWE.nanoFramework.Threading.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>..\packages\nanoFramework.CoreLibrary.1.15.5\lib\mscorlib.dll</HintPath>
