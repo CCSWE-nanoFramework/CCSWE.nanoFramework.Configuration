@@ -42,16 +42,16 @@
       <HintPath>..\packages\CCSWE.nanoFramework.Collections.Concurrent.1.0.6\lib\CCSWE.nanoFramework.Collections.Concurrent.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CCSWE.nanoFramework.Core, Version=1.0.4.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\CCSWE.nanoFramework.Core.1.0.4\lib\CCSWE.nanoFramework.Core.dll</HintPath>
+    <Reference Include="CCSWE.nanoFramework.Core, Version=1.0.5.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\CCSWE.nanoFramework.Core.1.0.5\lib\CCSWE.nanoFramework.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CCSWE.nanoFramework.Threading, Version=1.0.11.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\CCSWE.nanoFramework.Threading.1.0.11\lib\CCSWE.nanoFramework.Threading.dll</HintPath>
+    <Reference Include="CCSWE.nanoFramework.Threading, Version=1.0.12.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\CCSWE.nanoFramework.Threading.1.0.12\lib\CCSWE.nanoFramework.Threading.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CCSWE.nanoFramework.Threading.TestFramework, Version=1.0.11.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\CCSWE.nanoFramework.Threading.TestFramework.1.0.11\lib\CCSWE.nanoFramework.Threading.TestFramework.dll</HintPath>
+    <Reference Include="CCSWE.nanoFramework.Threading.TestFramework, Version=1.0.12.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\CCSWE.nanoFramework.Threading.TestFramework.1.0.12\lib\CCSWE.nanoFramework.Threading.TestFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="mscorlib">
@@ -75,8 +75,8 @@
     <Reference Include="nanoFramework.System.Collections">
       <HintPath>..\packages\nanoFramework.System.Collections.1.5.31\lib\nanoFramework.System.Collections.dll</HintPath>
     </Reference>
-    <Reference Include="nanoFramework.System.Runtime, Version=1.0.16.0, Culture=neutral, PublicKeyToken=c07d481e9758c731">
-      <HintPath>..\packages\nanoFramework.System.Runtime.1.0.16\lib\nanoFramework.System.Runtime.dll</HintPath>
+    <Reference Include="nanoFramework.System.Runtime, Version=1.0.27.0, Culture=neutral, PublicKeyToken=c07d481e9758c731">
+      <HintPath>..\packages\nanoFramework.System.Runtime.1.0.27\lib\nanoFramework.System.Runtime.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="nanoFramework.System.Text">
