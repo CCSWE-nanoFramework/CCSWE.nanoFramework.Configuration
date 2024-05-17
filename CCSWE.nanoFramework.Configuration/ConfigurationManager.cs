@@ -87,7 +87,7 @@ namespace CCSWE.nanoFramework.Configuration
         {
             CheckDisposed();
 
-            Ensure.IsNotNullOrEmpty(nameof(section), section);
+            Ensure.IsNotNullOrEmpty(section);
 
             var descriptor = GetDescriptor(section);
             descriptor.Current = descriptor.Defaults;
@@ -162,7 +162,7 @@ namespace CCSWE.nanoFramework.Configuration
         {
             CheckDisposed();
 
-            Ensure.IsNotNullOrEmpty(nameof(section), section);
+            Ensure.IsNotNullOrEmpty(section);
 
             var descriptor = GetDescriptor(section);
             var configuration = descriptor.Current;
@@ -206,7 +206,7 @@ namespace CCSWE.nanoFramework.Configuration
         {
             CheckDisposed();
 
-            Ensure.IsNotNullOrEmpty(nameof(section), section);
+            Ensure.IsNotNullOrEmpty(section);
 
             var descriptor = GetDescriptor(section);
 
@@ -217,8 +217,8 @@ namespace CCSWE.nanoFramework.Configuration
         {
             CheckDisposed();
 
-            Ensure.IsNotNullOrEmpty(nameof(section), section);
-            Ensure.IsNotNull(nameof(configuration), configuration);
+            Ensure.IsNotNullOrEmpty(section);
+            Ensure.IsNotNull(configuration);
 
             var descriptor = GetDescriptor(section);
 
@@ -230,8 +230,8 @@ namespace CCSWE.nanoFramework.Configuration
         {
             CheckDisposed();
 
-            Ensure.IsNotNullOrEmpty(nameof(section), section);
-            Ensure.IsNotNull(nameof(configuration), configuration);
+            Ensure.IsNotNullOrEmpty(section);
+            Ensure.IsNotNull(configuration);
 
             var descriptor = GetDescriptor(section);
 

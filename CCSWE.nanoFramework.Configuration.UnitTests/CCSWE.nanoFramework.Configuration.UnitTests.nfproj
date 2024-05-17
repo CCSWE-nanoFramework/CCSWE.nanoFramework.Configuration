@@ -39,17 +39,16 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="CCSWE.nanoFramework.Collections.Concurrent">
-      <HintPath>..\packages\CCSWE.nanoFramework.Collections.Concurrent.1.0.7\lib\CCSWE.nanoFramework.Collections.Concurrent.dll</HintPath>
+      <HintPath>..\packages\CCSWE.nanoFramework.Collections.Concurrent.1.0.11\lib\CCSWE.nanoFramework.Collections.Concurrent.dll</HintPath>
     </Reference>
-    <Reference Include="CCSWE.nanoFramework.Core, Version=1.0.8.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\CCSWE.nanoFramework.Core.1.0.8\lib\CCSWE.nanoFramework.Core.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="CCSWE.nanoFramework.Core">
+      <HintPath>..\packages\CCSWE.nanoFramework.Core.1.0.12\lib\CCSWE.nanoFramework.Core.dll</HintPath>
     </Reference>
     <Reference Include="CCSWE.nanoFramework.Threading">
-      <HintPath>..\packages\CCSWE.nanoFramework.Threading.1.0.13\lib\CCSWE.nanoFramework.Threading.dll</HintPath>
+      <HintPath>..\packages\CCSWE.nanoFramework.Threading.1.0.15\lib\CCSWE.nanoFramework.Threading.dll</HintPath>
     </Reference>
     <Reference Include="CCSWE.nanoFramework.Threading.TestFramework">
-      <HintPath>..\packages\CCSWE.nanoFramework.Threading.TestFramework.1.0.13\lib\CCSWE.nanoFramework.Threading.TestFramework.dll</HintPath>
+      <HintPath>..\packages\CCSWE.nanoFramework.Threading.TestFramework.1.0.14\lib\CCSWE.nanoFramework.Threading.TestFramework.dll</HintPath>
     </Reference>
     <Reference Include="CCSWE.nanoFramework.Threading.TestFramework, Version=1.0.12.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\packages\CCSWE.nanoFramework.Threading.TestFramework.1.0.12\lib\CCSWE.nanoFramework.Threading.TestFramework.dll</HintPath>
@@ -83,13 +82,11 @@
     <Reference Include="nanoFramework.System.Text">
       <HintPath>..\packages\nanoFramework.System.Text.1.2.54\lib\nanoFramework.System.Text.dll</HintPath>
     </Reference>
-    <Reference Include="nanoFramework.TestFramework, Version=2.1.94.0, Culture=neutral, PublicKeyToken=c07d481e9758c731">
-      <HintPath>..\packages\nanoFramework.TestFramework.2.1.94\lib\nanoFramework.TestFramework.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="nanoFramework.TestFramework">
+      <HintPath>..\packages\nanoFramework.TestFramework.2.1.100\lib\nanoFramework.TestFramework.dll</HintPath>
     </Reference>
-    <Reference Include="nanoFramework.UnitTestLauncher, Version=0.0.0.0, Culture=neutral, PublicKeyToken=c07d481e9758c731">
-      <HintPath>..\packages\nanoFramework.TestFramework.2.1.94\lib\nanoFramework.UnitTestLauncher.exe</HintPath>
-      <Private>True</Private>
+    <Reference Include="nanoFramework.UnitTestLauncher">
+      <HintPath>..\packages\nanoFramework.TestFramework.2.1.100\lib\nanoFramework.UnitTestLauncher.exe</HintPath>
     </Reference>
     <Reference Include="System.IO.FileSystem, Version=1.1.47.0, Culture=neutral, PublicKeyToken=c07d481e9758c731">
       <HintPath>..\packages\nanoFramework.System.IO.FileSystem.1.1.47\lib\System.IO.FileSystem.dll</HintPath>
