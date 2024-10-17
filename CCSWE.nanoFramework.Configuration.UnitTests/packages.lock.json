@@ -4,27 +4,27 @@
     ".NETnanoFramework,Version=v1.0": {
       "CCSWE.nanoFramework.Collections.Concurrent": {
         "type": "Direct",
-        "requested": "[1.0.39, 1.0.39]",
-        "resolved": "1.0.39",
-        "contentHash": "isj64deBxY9w1GPOBQms1wXVu6YKCtzmZ1qtytZQdu4Z+It49QkcI3oHyKsZ6uidI2qlDtVd2cTSGXdij58zwg=="
+        "requested": "[1.0.40, 1.0.40]",
+        "resolved": "1.0.40",
+        "contentHash": "FEu+w+re80+ZZuV8tlmTwe6N61erC4/jD5CjCiRUX7++ZPas+FNebvEi7wTDSRWuyLp3jlveezeLX/jd2F7Ehg=="
       },
       "CCSWE.nanoFramework.Core": {
         "type": "Direct",
-        "requested": "[1.0.37, 1.0.37]",
-        "resolved": "1.0.37",
-        "contentHash": "leLQo7i75ah6XjZnTabkvhFrCILHFEXpnD2AxyZ5QVt3GD4v/pWKq9jFaBfUzVrY+SRmK7ObkYS+r9t8DNxZOA=="
+        "requested": "[1.0.38, 1.0.38]",
+        "resolved": "1.0.38",
+        "contentHash": "R9ySPbYtAHe7h/IVvfvQGbp4H1CP8aPIRLYEEiFtkE5sL0Y02QT4DiML2Psu4Zwu6IxGu7xNQJFu1JQSvG8ZXA=="
       },
       "CCSWE.nanoFramework.Threading": {
         "type": "Direct",
-        "requested": "[1.0.60, 1.0.60]",
-        "resolved": "1.0.60",
-        "contentHash": "b0kh4tbtrph0agchqf3BbOFLU4EuQuA81aEf7QJkbN8GXtAzIqe13rJZKX5ah3alb3GOZYro0qzGs5spulUVUQ=="
+        "requested": "[1.0.61, 1.0.61]",
+        "resolved": "1.0.61",
+        "contentHash": "K8lsM4mc/Z1cTzhIi8OZrm2mYLSJxIgUTyFvIgzkX/Lfy+c8db9YPhBbVE22qPnqcesQkfw8/XdkhQw/+vRYIg=="
       },
       "CCSWE.nanoFramework.Threading.TestFramework": {
         "type": "Direct",
-        "requested": "[1.0.60, 1.0.60]",
-        "resolved": "1.0.60",
-        "contentHash": "MZIPznKfLci7cOZfgNUH614vc6RGdwpScXih8tcxywApuTUyaJst2Bg32X7gwuI0AJNZ/ukmMUQjloKtimyZew=="
+        "requested": "[1.0.61, 1.0.61]",
+        "resolved": "1.0.61",
+        "contentHash": "k2tmDetx8TxqvSRAfMfztlCBxEGifotvqOScUnqu72jCg+PVZiup2KJ2BLz/eU+rVcUOW5YRtLseltanncuntA=="
       },
       "nanoFramework.CoreLibrary": {
         "type": "Direct",
@@ -100,9 +100,9 @@
       },
       "nanoFramework.TestFramework": {
         "type": "Direct",
-        "requested": "[2.1.112, 2.1.112]",
-        "resolved": "2.1.112",
-        "contentHash": "aiPyyGb7+yv96IQAxVGnXaQj8tTYf9Zj4zb6YM4kGJl+GptWlXqx8rS7lstWHYqM1UVyPEl1yT69uI6Go110qQ=="
+        "requested": "[2.1.113, 2.1.113]",
+        "resolved": "2.1.113",
+        "contentHash": "+aFNv9Kew1rxYL7boHO1WUdLRIFeqkUW23770dxQwynUquqob56nI1c5I4E4QAaCQg6TnZm+SLEIa2USHRuoRg=="
       }
     }
   }
